@@ -150,15 +150,261 @@ elsoc_wide_2016_2021$m01_w05_fac[elsoc_wide_2016_2021$m01_w05==8]="Universitaria
 elsoc_wide_2016_2021$m01_w05_fac[elsoc_wide_2016_2021$m01_w05==9]="Universitaria Completa"
 elsoc_wide_2016_2021$m01_w05_fac[elsoc_wide_2016_2021$m01_w05==10]="Postgrado"
 elsoc_wide_2016_2021$m01_w05_fac[elsoc_wide_2016_2021$m01_w05==-999]=NA
+elsoc_wide_2016_2021$m01_w05_fac[elsoc_wide_2016_2021$m01_w05==-888]=NA
+
+
+## Ola 3 ###########
 
 
 ##################### Ingresos Mensuales ##################
 
-# COnsultar con nati
-unique(elsoc_wide_2016_2021$m14b_w05)
+########### ola 1 #####################
+elsoc_wide_2016_2021$m13_w01_fac <- as.character(car::recode(elsoc_wide_2016_2021$m13_w01, recodes = "0:249999 = 1; 250000:349999 = 2; 350000:449999 = 3; 450000:699999 = 4; 700000:15000000 = 5"))
 
-elsoc_wide_2016_2021$m14_w01_fac <- as.character(car::recode(elsoc_wide_2016_2021$m14_w01, recodes = "1:30 = 1; 31:50 = 2; 51:70 = 3; 71:100 = 4"))
+
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==1]="Menos de 250.000"
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==2]="Entre 250.000 a 350.000"
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==3]="Entre 350.000 a 450.000"
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==4]="Entre 450.000 a 700.000"
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==5]="Mas de 700.000"
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==-999]=NA
+elsoc_wide_2016_2021$m13_w01_fac[elsoc_wide_2016_2021$m13_w01_fac==-888]=NA
+
+unique(elsoc_wide_2016_2021$m13_w01_fac)
+
+## ola 2 ######
+
+elsoc_wide_2016_2021$m13_w02_fac <- as.character(car::recode(elsoc_wide_2016_2021$m13_w02, recodes = "0:249999 = 1; 250000:349999 = 2; 350000:449999 = 3; 450000:699999 = 4; 700000:15000000 = 5"))
+
+
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==1]="Menos de 250.000"
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==2]="Entre 250.000 a 350.000"
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==3]="Entre 350.000 a 450.000"
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==4]="Entre 450.000 a 700.000"
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==5]="Mas de 700.000"
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==-999]=NA
+elsoc_wide_2016_2021$m13_w02_fac[elsoc_wide_2016_2021$m13_w02_fac==-888]=NA
+
+### ola 3 ##########
+
+elsoc_wide_2016_2021$m13_w03_fac <- as.character(car::recode(elsoc_wide_2016_2021$m13_w03, recodes = "0:249999 = 1; 250000:349999 = 2; 350000:449999 = 3; 450000:699999 = 4; 700000:15000000 = 5"))
+
+
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==1]="Menos de 250.000"
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==2]="Entre 250.000 a 350.000"
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==3]="Entre 350.000 a 450.000"
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==4]="Entre 450.000 a 700.000"
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==5]="Mas de 700.000"
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==-999]=NA
+elsoc_wide_2016_2021$m13_w03_fac[elsoc_wide_2016_2021$m13_w03_fac==-888]=NA
+
+
+#### ola 4 #############
+elsoc_wide_2016_2021$m13_w04_fac <- as.character(car::recode(elsoc_wide_2016_2021$m13_w04, recodes = "0:249999 = 1; 250000:349999 = 2; 350000:449999 = 3; 450000:699999 = 4; 700000:15000000 = 5"))
+
+
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==1]="Menos de 250.000"
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==2]="Entre 250.000 a 350.000"
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==3]="Entre 350.000 a 450.000"
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==4]="Entre 450.000 a 700.000"
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==5]="Mas de 700.000"
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==-999]=NA
+elsoc_wide_2016_2021$m13_w04_fac[elsoc_wide_2016_2021$m13_w04_fac==-888]=NA
+
+####### ola 5 ##########
+
+elsoc_wide_2016_2021$m13_w05_fac <- as.character(car::recode(elsoc_wide_2016_2021$m13_w05, recodes = "0:249999 = 1; 250000:349999 = 2; 350000:449999 = 3; 450000:699999 = 4; 700000:15000000 = 5"))
+
+
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==1]="Menos de 250.000"
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==2]="Entre 250.000 a 350.000"
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==3]="Entre 350.000 a 450.000"
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==4]="Entre 450.000 a 700.000"
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==5]="Mas de 700.000"
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==-999]=NA
+elsoc_wide_2016_2021$m13_w05_fac[elsoc_wide_2016_2021$m13_w05_fac==-888]=NA
 
 
 ########## NIVEL EDUCACIONAL DEL PADRE ##########
+# Nota: estan solo para la ola 1, 3 y 5
 
+
+### ola 1 ############
+
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==1]="Sin estudios"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==2]="Basica Incompleta"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==3]="Basica Completa"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==4]="Media Incompleta"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==5]="Media Completa"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==6]="Tecnica Incompleta"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==7]="Tecnica Completa"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==8]="Universitaria Incompleta"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==9]="Universitaria Completa"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==10]="Postgrado"
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==-999]=NA
+elsoc_wide_2016_2021$m27_w01_fac[elsoc_wide_2016_2021$m27_w01==-888]=NA
+
+
+############# ola 3 #################
+
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==1]="Sin estudios"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==2]="Basica Incompleta"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==3]="Basica Completa"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==4]="Media Incompleta"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==5]="Media Completa"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==6]="Tecnica Incompleta"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==7]="Tecnica Completa"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==8]="Universitaria Incompleta"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==9]="Universitaria Completa"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==10]="Postgrado"
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==-999]=NA
+elsoc_wide_2016_2021$m27_w03_fac[elsoc_wide_2016_2021$m27_w03==-888]=NA
+
+################ ola 5 ##########################
+
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==1]="Sin estudios"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==2]="Basica Incompleta"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==3]="Basica Completa"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==4]="Media Incompleta"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==5]="Media Completa"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==6]="Tecnica Incompleta"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==7]="Tecnica Completa"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==8]="Universitaria Incompleta"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==9]="Universitaria Completa"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==10]="Postgrado"
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==-999]=NA
+elsoc_wide_2016_2021$m27_w05_fac[elsoc_wide_2016_2021$m27_w05==-888]=NA
+
+
+#################### Nivel educacional de la madre ###############
+# Nota: solo disponibles para la ola 1, 3 y 5 
+
+####### Ola 1 ################
+
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==1]="Sin estudios"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==2]="Basica Incompleta"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==3]="Basica Completa"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==4]="Media Incompleta"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==5]="Media Completa"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==6]="Tecnica Incompleta"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==7]="Tecnica Completa"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==8]="Universitaria Incompleta"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==9]="Universitaria Completa"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==10]="Postgrado"
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==-999]=NA
+elsoc_wide_2016_2021$m28_w01_fac[elsoc_wide_2016_2021$m28_w01==-888]=NA
+
+######## ola 3 #####################
+
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==1]="Sin estudios"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==2]="Basica Incompleta"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==3]="Basica Completa"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==4]="Media Incompleta"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==5]="Media Completa"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==6]="Tecnica Incompleta"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==7]="Tecnica Completa"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==8]="Universitaria Incompleta"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==9]="Universitaria Completa"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==10]="Postgrado"
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==-999]=NA
+elsoc_wide_2016_2021$m28_w03_fac[elsoc_wide_2016_2021$m28_w03==-888]=NA
+
+########### ola 5 #######################
+
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==1]="Sin estudios"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==2]="Basica Incompleta"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==3]="Basica Completa"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==4]="Media Incompleta"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==5]="Media Completa"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==6]="Tecnica Incompleta"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==7]="Tecnica Completa"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==8]="Universitaria Incompleta"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==9]="Universitaria Completa"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==10]="Postgrado"
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==-999]=NA
+elsoc_wide_2016_2021$m28_w05_fac[elsoc_wide_2016_2021$m28_w05==-888]=NA
+
+################  TRABAJO  ########################
+
+#### ola 1 ###########
+unique(elsoc_wide_2016_2021$m02_w01_fac)
+
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==1]="Trabaja Jornada Completa"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==2]="Trabaja Jornada Parcial"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==3]="Estudia y trabaja"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==4]="Solo estudia"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==5]="Jubilado"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==6]="Desempleado"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==7]="Tareas no remuneradas"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==8]="Enfermedad incapacitante"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==9]="No trabaja ni busca trabajo"
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==-999]=NA
+elsoc_wide_2016_2021$m02_w01_fac[elsoc_wide_2016_2021$m02_w01==-888]=NA
+
+### ola 3 #########
+
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==1]="Trabaja Jornada Completa"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==2]="Trabaja Jornada Parcial"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==3]="Estudia y trabaja"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==4]="Solo estudia"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==5]="Jubilado"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==6]="Desempleado"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==7]="Tareas no remuneradas"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==8]="Enfermedad incapacitante"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==9]="No trabaja ni busca trabajo"
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==-999]=NA
+elsoc_wide_2016_2021$m02_w03_fac[elsoc_wide_2016_2021$m02_w03==-888]=NA
+
+####### ola 5 ############
+
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==1]="Trabaja Jornada Completa"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==2]="Trabaja Jornada Parcial"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==3]="Estudia y trabaja"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==4]="Solo estudia"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==5]="Jubilado"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==6]="Desempleado"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==7]="Tareas no remuneradas"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==8]="Enfermedad incapacitante"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==9]="No trabaja ni busca trabajo"
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==-999]=NA
+elsoc_wide_2016_2021$m02_w05_fac[elsoc_wide_2016_2021$m02_w05==-888]=NA
+
+###################### Percepcion de igualdad de posicion #############
+# Nota: la pregunta p18_13 solo se encuentra disponible a la ola 4 y 5
+
+
+############### Participacion es organizaciones sociales #################
+
+# Nota: no se encuentra disponible para todas las olas, solo ola 1 y 3
+
+############### Igualdad de oportunidades #####################
+
+# Nota: no se encuentra disponible para todas las olas, solo ola 1 y 3
+
+#### Migrantes ################
+
+### ola 1 ####
+elsoc_wide_2016_2021$cuestion_mig_w01_fac[elsoc_wide_2016_2021$cuestion_mig_w01==1]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w01_fac[elsoc_wide_2016_2021$cuestion_mig_w01==2]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w01_fac[is.na(elsoc_wide_2016_2021$cuestion_mig_w01)]="No Migrante"
+
+#### ola 3 ########
+
+elsoc_wide_2016_2021$cuestion_mig_w03_fac[elsoc_wide_2016_2021$cuestion_mig_w03==1]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w03_fac[elsoc_wide_2016_2021$cuestion_mig_w03==2]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w03_fac[elsoc_wide_2016_2021$cuestion_mig_w03==3]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w03_fac[is.na(elsoc_wide_2016_2021$cuestion_mig_w03)]="No Migrante"
+
+unique(elsoc_wide_2016_2021$cuestion_mig_w05_fac)
+
+
+###### ola 5 #########
+
+elsoc_wide_2016_2021$cuestion_mig_w05_fac[elsoc_wide_2016_2021$cuestion_mig_w05==1]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w05_fac[elsoc_wide_2016_2021$cuestion_mig_w05==2]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w05_fac[elsoc_wide_2016_2021$cuestion_mig_w05==3]="Migrante"
+elsoc_wide_2016_2021$cuestion_mig_w05_fac[is.na(elsoc_wide_2016_2021$cuestion_mig_w05)]="No Migrante"
+
+
+########### Pueblo originario ###########
+# Nota: no se encuentra disponible para las olas 1, 2 y 5
