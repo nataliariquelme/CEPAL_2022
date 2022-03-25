@@ -1,4 +1,18 @@
-
+# CARGAR LIBRERIAS ----
+library(tidyr)
+library(dplyr)
+library(haven)
+library(expss)
+library(purrr)
+library(magrittr)
+library(stringr)
+library(readxl)
+library(foreign)
+library(purrr)
+library(tidyselect)
+library(ggplot2)
+library(ggrepel)
+library(gridExtra)
 
 
 # RESUMENES NUMERICOS -----------------------------------------------------
@@ -14,7 +28,7 @@ resumen.vars <- function(vars, base){
              "Mediana"=round(median(getElement(base,var),na.rm=TRUE),2),
              "Desv Est"=round(sd(getElement(base,var),na.rm = TRUE),2),
              "Perdidos"=sum(is.na(getElement(base,var))),
-             "etiqueta"= attr(getElement(base,var), "label"))
+             "Etiqueta"= attr(getElement(base,var), "label"))
       
     }  
   } 
@@ -44,6 +58,58 @@ resumen <- function(var){
   return(tabla)
   
 }
+
+#### Tablas de contingencia ponderadas y con test bonferroni de diferencia de medias
+tab_cpct_sig = . %>% tab_stat_cpct() %>% tab_last_sig_cpct(bonferroni = TRUE)
+
+sig_w03 <- function(base,var_banner,variable){
+  banner_1 <- base %>% tab_cols(total(),var_banner) %>% tab_weight(weight = ponderador02_w03)
+  tabla_spss <- banner_1 %>% tab_cells(variable) %>% tab_cpct_sig %>% tab_pivot()
+  tabla_spss <- tibble(tabla_spss)
+  tabla_spss <- tabla_spss %>% pivot_longer(cols = -1, names_to = "variables", values_to = "values")
+  tabla_spss <- tabla_spss %>% separate(values, into = c("values", "significancia"), sep = 4, convert = TRUE)
+  tabla_spss <- tabla_spss %>% filter(variables != "#Total")
+  tabla_spss <- tabla_spss %>% mutate(significancia = str_trim(significancia),
+                                      significancia = case_when(significancia == "" ~ "",
+                                                                TRUE ~ "*"))
+  tabla_spss <- tabla_spss %>% separate(row_labels, into = c("borrar", "categoria"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-borrar)
+  tabla_spss <- tabla_spss %>% separate(variables, into = c("b_1", "variables","b_2"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-starts_with("b_"))
+  tabla_spss <- tabla_spss %>% filter(categoria != "#Total cases")
+  return(tabla_spss)
+}
+
+sig_w04 <- function(base,var_banner,variable){
+  banner_1 <- base %>% tab_cols(total(),var_banner) %>% tab_weight(weight = ponderador02_w04)
+  tabla_spss <- banner_1 %>% tab_cells(variable) %>% tab_cpct_sig %>% tab_pivot()
+  tabla_spss <- tibble(tabla_spss)
+  tabla_spss <- tabla_spss %>% pivot_longer(cols = -1, names_to = "variables", values_to = "values")
+  tabla_spss <- tabla_spss %>% separate(values, into = c("values", "significancia"), sep = 4, convert = TRUE)
+  tabla_spss <- tabla_spss %>% filter(variables != "#Total")
+  tabla_spss <- tabla_spss %>% mutate(significancia = str_trim(significancia),
+                                      significancia = case_when(significancia == "" ~ "",
+                                                                TRUE ~ "*"))
+  tabla_spss <- tabla_spss %>% separate(row_labels, into = c("borrar", "categoria"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-borrar)
+  tabla_spss <- tabla_spss %>% separate(variables, into = c("b_1", "variables","b_2"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-starts_with("b_"))
+  tabla_spss <- tabla_spss %>% filter(categoria != "#Total cases")
+  return(tabla_spss)
+}
+sig_w05 <- function(base,var_banner,variable){
+  banner_1 <- base %>% tab_cols(total(),var_banner) %>% tab_weight(weight = ponderador02_w05)
+  tabla_spss <- banner_1 %>% tab_cells(variable) %>% tab_cpct_sig %>% tab_pivot()
+  tabla_spss <- tibble(tabla_spss)
+  tabla_spss <- tabla_spss %>% pivot_longer(cols = -1, names_to = "variables", values_to = "values")
+  tabla_spss <- tabla_spss %>% separate(values, into = c("values", "significancia"), sep = 4, convert = TRUE)
+  tabla_spss <- tabla_spss %>% filter(variables != "#Total")
+  tabla_spss <- tabla_spss %>% mutate(significancia = str_trim(significancia),
+                                      significancia = case_when(significancia == "" ~ "",
+                                                                TRUE ~ "*"))
+  tabla_spss <- tabla_spss %>% separate(row_labels, into = c("borrar", "categoria"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-borrar)
+  tabla_spss <- tabla_spss %>% separate(variables, into = c("b_1", "variables","b_2"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-starts_with("b_"))
+  tabla_spss <- tabla_spss %>% filter(categoria != "#Total cases")
+  return(tabla_spss)
+}
+
+
 
 
 # GRAFICOS ----------------------------------------------------------------

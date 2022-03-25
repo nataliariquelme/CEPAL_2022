@@ -1,6 +1,6 @@
 ---
 title: "Resultados_preliminares"
-author: "Equipo CEPAL"
+author: "Equipo CEPAL - COES 2022"
 date: "24-03-2022"
 output:
   html_document: default
@@ -9,6 +9,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source(here::here('Scripts_extra/funciones.R'))
+source(here::here('Recodificacion_variables.R'))
 library(readxl)
 library(dplyr)
 library(kableExtra)
@@ -49,19 +51,208 @@ kbl(Variablesx) %>%
 
 #### Confianza en las instituciones
 
+La variable Confianza en las instituciones, al igual que en versiones pasadas del Informe, se medirá a través de las variables c05_01, c05_02 y c05_08, que corresponden respectivamente a Confianza en el Gobierno, Confianza en los partidos políticos y confianza en el Presidente de la República. 
+
+Dichas variables presentan las siguientes distribuciones:
+
+##### 2018
+
+Confianza en El Gobierno
+
+```{r, echo=FALSE}
+resumen.vars("c05_01_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c05_01_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c05_01_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+Confianza en Los Partidos Políticos
+
+```{r, echo=FALSE}
+resumen.vars("c05_02_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c05_02_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c05_02_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+
+Confianza en El/La Presidente/a de la República
+
+```{r, echo=FALSE}
+resumen.vars("c05_08_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c05_08_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c05_08_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+#### Confianza en las instituciones
+
 #### Percepción de la Desigualdad
+
+```{r, echo=FALSE}
+resumen.vars("c18_11_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+```{r, echo=FALSE}
+resumen.vars("c18_11_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("c18_11_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
 
 #### Preferencias Distributivas
 
-#### Expectativas de Movilidad Social
+Las variables relacionadas no fueron medidas en la Ola 5 del estudio ELSOC.
 
-#### Percepción de la Movilidad Social
+Justicia distributiva en pensiones
 
-### Sobre las variables predictoras
+```{r, echo=FALSE}
+resumen.vars("d02_01_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
 
-#### Sexo
+```{r, echo=FALSE}
+resumen.vars("d02_01_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+Justicia distributiva en Educación
+
+```{r, echo=FALSE}
+resumen.vars("d02_02_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+
+```{r, echo=FALSE}
+resumen.vars("d02_02_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+Justicia distributiva en Salud
+
+```{r, echo=FALSE}
+resumen.vars("d02_03_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d02_03_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+
+#### Percepción de Movilidad Social
+
+```{r, echo=FALSE}
+resumen.vars("d05_01_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d05_01_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d05_01_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+#### Expectativas de la Movilidad Social
+
+```{r, echo=FALSE}
+resumen.vars("d01_01_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d01_01_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d01_01_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+
+
+```{r, echo=FALSE}
+resumen.vars("d01_03_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d01_03_w04",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+```{r, echo=FALSE}
+resumen.vars("d01_03_w05",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+Variables respuesta
+
+#### Sexo 
 
 #### Edad
+
+
 
 #### Nivel Educacional
 
