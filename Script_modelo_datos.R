@@ -450,47 +450,100 @@ alluvial_exp.mov
 #### Confianza en las instituciones
 
 data_conf_w03 <- data %>% 
-  select(conf_institucional_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+  select(conf_institucional_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, 
+         m13_w03_fac, m02_w03_fac, ponderador02_w03)
 
 data_conf_w04 <- data %>% 
-  select(conf_institucional_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+  select(conf_institucional_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac,
+         m13_w04_fac, m02_w04_fac,ponderador02_w04)
 
 data_conf_w05 <- data %>% 
-  select(conf_institucional_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+  select(conf_institucional_w05, m0_sexo_w05, m0_edad_w05_fac, 
+         m01_w05_fac, m13_w05_fac, m02_w05_fac, ponderador02_w05)
 
 #### percepción de la desigualdad
 
 data_per_des_w03 <- data %>% 
-  select(per_desigualdad_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+  select(per_desigualdad_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, 
+         m13_w03_fac, m02_w03_fac, ponderador02_w03)
 
 data_per_des_w04 <- data %>% 
-  select(per_desigualdad_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+  select(per_desigualdad_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, 
+         m13_w04_fac, m02_w04_fac, ponderador02_w04)
 
 data_per_des_w05 <- data %>% 
-  select(per_desigualdad_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+  select(per_desigualdad_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, 
+         m13_w05_fac, m02_w05_fac, ponderador02_w05)
 
 #### Percepción de movilidad social
 
 data_per_mov_w03 <- data %>% 
-  select(movilidad_social_wo3, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+  select(movilidad_social_wo3, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac,
+         m13_w03_fac, m02_w03_fac, ponderador02_w03)
 
 data_per_mov_w04 <- data %>% 
-  select(movilidad_social_wo4,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+  select(movilidad_social_wo4,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, 
+         m13_w04_fac, m02_w04_fac, ponderador02_w04)
 
 data_per_mov_w05 <- data %>% 
-  select(movilidad_social_wo5, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+  select(movilidad_social_wo5, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac,
+         m13_w05_fac, m02_w05_fac, ponderador02_w05)
 
 #### Expectativas de movilidad social
 
 data_exp_mov_w03 <- data %>% 
-  select(exp_mov_fac_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+  select(exp_mov_fac_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, 
+         m13_w03_fac, m02_w03_fac, ponderador02_w03)
 
 data_exp_mov_w04 <- data %>% 
-  select(exp_mov_fac_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+  select(exp_mov_fac_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac,
+         m13_w04_fac, m02_w04_fac, ponderador02_w04)
 
 data_exp_mov_w05 <- data %>% 
-  select(exp_mov_fac_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+  select(exp_mov_fac_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, 
+         m13_w05_fac, m02_w05_fac, ponderador02_w05)
+
+## Seleccion modelo
+
+#### Confianza institucional w03
+
+mod_nulo <- lm(conf_institucional_w03 ~ 1,  weights = ponderador02_w03, data_conf_w03)
+mod_full <-  lm(conf_institucional_w03~., weights = ponderador02_w03, data = data_conf_w03)
 
 
-attach(data)
-vars_predictoras <- c(m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+modelo <-  step(mod_nulo,
+                scope=list(lower=formula(mod_nulo),
+                           upper=formula(mod_full)),
+                direction="both")
+
+### modelo seleccionado
+summary(modelo)
+
+#### Confianza institucional w04
+
+mod_nulo <- lm(conf_institucional_w04~1,  weights = ponderador_02_w04, data_conf_w03)
+mod_full <-  lm(conf_institucional_w04~., weights = ponderador_02_w04, data = data_conf_w03)
+
+
+modelo <-  step(mod_nulo,
+                scope=list(lower=formula(mod_nulo),
+                           upper=formula(mod_full)),
+                direction="both")
+
+### modelo seleccionado
+summary(modelo)
+
+#### Confianza institucional w05
+
+mod_nulo <- lm(conf_institucional_w05~1,weights = ponderador_02_w05, data_conf_w05)
+mod_full <-  lm(conf_institucional_w05~.,weights = ponderador_02_w05, data = data_conf_w05)
+
+
+modelo <-  step(mod_nulo,
+                scope=list(lower=formula(mod_nulo),
+                           upper=formula(mod_full)),
+                direction="both")
+
+### modelo seleccionado
+summary(modelo)
+

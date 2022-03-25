@@ -250,4 +250,7 @@ alluvial_exp.mov <- ggplot(datos.exp.mov, aes(x = ola, fill = exp_mov_fac, strat
 alluvial_exp.mov
 ```
 
-
+# Guardar base
+```{r}
+save(data,file = "data1.RData")
+```

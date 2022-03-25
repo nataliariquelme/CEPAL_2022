@@ -315,6 +315,13 @@ data$m02_w05_fac[data$m02_w05==9]= "No Participa"
 
 data %>% select (m02_w03_fac, m02_w04_fac, m02_w05_fac)  %>% sjlabelled::as_label(.)  %>%  dfSummary(, graph.col = FALSE)
 ```
+## Transformación a factor de las variables del dataframe
+
+```{r}
+data %>% select()
+```
+
+
 
 # Guardar base
 ```{r}

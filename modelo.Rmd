@@ -24,7 +24,8 @@ pacman::p_load(dplyr, panelr, survey, ggplot2, summarytools, shadowtext)
 
 ```{r include=FALSE}
 # Cargar base elsoc longitudinal (2016-2019) creada en "preparacion"
-load("data.RData")
+load("data1.RData")
+
 ```
 
 ```{r}
@@ -34,6 +35,7 @@ load("data.RData")
 
 data_conf_w03 <- data %>% 
   select(conf_institucional_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+
 
 data_conf_w04 <- data %>% 
   select(conf_institucional_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
@@ -76,12 +78,55 @@ data_exp_mov_w05 <- data %>%
 
 ```
 
+### Modelos completos sin selección de ajuste
+
 ```{r}
-attach(data)
-vars_predictoras <- c(m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+## Seleccion modelo
+
+#### Confianza institucional w03
+
+mod_nulo <- lm(conf_institucional_w03~1,  weights = ponderador_02_w03, data_conf_w03)
+mod_full <-  lm(conf_institucional_w03~., weights = ponderador_02_w03, data = data_conf_w03)
+
+
+modelo <-  step(mod_nulo,
+                scope=list(lower=formula(mod_nulo),
+                           upper=formula(mod_full)),
+                direction="both")
+
+### modelo seleccionado
+summary(modelo)
+
+#### Confianza institucional w04
+
+mod_nulo <- lm(conf_institucional_w04~1,  weights = ponderador_02_w04, data_conf_w03)
+mod_full <-  lm(conf_institucional_w04~., weights = ponderador_02_w04, data = data_conf_w03)
+
+
+modelo <-  step(mod_nulo,
+                scope=list(lower=formula(mod_nulo),
+                           upper=formula(mod_full)),
+                direction="both")
+
+### modelo seleccionado
+summary(modelo)
+
+#### Confianza institucional w05
+
+mod_nulo <- lm(conf_institucional_w05~1,weights = ponderador_02_w05, data_conf_w05)
+mod_full <-  lm(conf_institucional_w05~.,weights = ponderador_02_w05, data = data_conf_w05)
+
+
+modelo <-  step(mod_nulo,
+                scope=list(lower=formula(mod_nulo),
+                           upper=formula(mod_full)),
+                direction="both")
+
+### modelo seleccionado
+summary(modelo)
+
 ```
 
-### Modelo de selección fordward para conf_institucional_w03
 
 
 

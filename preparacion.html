@@ -381,25 +381,25 @@ data %&gt;% select (c05_08_w03, c05_08_w04, c05_08_w05)  %&gt;% sjlabelled::as_l
 </div>
 <div id="percepción-de-la-desigualdad" class="section level2" number="2.2">
 <h2 number="2.2"><span class="header-section-number">2.2</span> Percepción de la Desigualdad</h2>
-<pre class="r"><code>data$per.desigualdad.w03[data$c18_11_w03==1]&lt;- &quot;En desacuerdo&quot;
-data$per.desigualdad.w03[data$c18_11_w03==2]&lt;- &quot;En desacuerdo&quot;
-data$per.desigualdad.w03[data$c18_11_w03==3]&lt;- &quot;Ni de acuerdo ni en desacuerdo&quot;
-data$per.desigualdad.w03[data$c18_11_w03==4]&lt;- &quot;De acuerdo&quot;
-data$per.desigualdad.w03[data$c18_11_w03==5]&lt;- &quot;De acuerdo&quot;
+<pre class="r"><code>data$per_desigualdad_w03[data$c18_11_w03==1]&lt;- &quot;En desacuerdo&quot;
+data$per_desigualdad_w03[data$c18_11_w03==2]&lt;- &quot;En desacuerdo&quot;
+data$per_desigualdad_w03[data$c18_11_w03==3]&lt;- &quot;Ni de acuerdo ni en desacuerdo&quot;
+data$per_desigualdad_w03[data$c18_11_w03==4]&lt;- &quot;De acuerdo&quot;
+data$per_desigualdad_w03[data$c18_11_w03==5]&lt;- &quot;De acuerdo&quot;
 
-data$per.desigualdad.w04[data$c18_11_w04==1]&lt;- &quot;En desacuerdo&quot;
-data$per.desigualdad.w04[data$c18_11_w04==2]&lt;- &quot;En desacuerdo&quot;
-data$per.desigualdad.w04[data$c18_11_w04==3]&lt;- &quot;Ni de acuerdo ni en desacuerdo&quot;
-data$per.desigualdad.w04[data$c18_11_w04==4]&lt;- &quot;De acuerdo&quot;
-data$per.desigualdad.w04[data$c18_11_w04==5]&lt;- &quot;De acuerdo&quot;
+data$per_desigualdad_w04[data$c18_11_w04==1]&lt;- &quot;En desacuerdo&quot;
+data$per_desigualdad_w04[data$c18_11_w04==2]&lt;- &quot;En desacuerdo&quot;
+data$per_desigualdad_w04[data$c18_11_w04==3]&lt;- &quot;Ni de acuerdo ni en desacuerdo&quot;
+data$per_desigualdad_w04[data$c18_11_w04==4]&lt;- &quot;De acuerdo&quot;
+data$per_desigualdad_w04[data$c18_11_w04==5]&lt;- &quot;De acuerdo&quot;
 
-data$per.desigualdad.w05[data$c18_11_w05==1]&lt;- &quot;En desacuerdo&quot;
-data$per.desigualdad.w05[data$c18_11_w05==2]&lt;- &quot;En desacuerdo&quot;
-data$per.desigualdad.w05[data$c18_11_w05==3]&lt;- &quot;Ni de acuerdo ni en desacuerdo&quot;
-data$per.desigualdad.w05[data$c18_11_w05==4]&lt;- &quot;De acuerdo&quot;
-data$per.desigualdad.w05[data$c18_11_w05==5]&lt;- &quot;De acuerdo&quot;
+data$per_desigualdad_w05[data$c18_11_w05==1]&lt;- &quot;En desacuerdo&quot;
+data$per_desigualdad_w05[data$c18_11_w05==2]&lt;- &quot;En desacuerdo&quot;
+data$per_desigualdad_w05[data$c18_11_w05==3]&lt;- &quot;Ni de acuerdo ni en desacuerdo&quot;
+data$per_desigualdad_w05[data$c18_11_w05==4]&lt;- &quot;De acuerdo&quot;
+data$per_desigualdad_w05[data$c18_11_w05==5]&lt;- &quot;De acuerdo&quot;
 
-data %&gt;% select (per.desigualdad.w03, per.desigualdad.w04, per.desigualdad.w05)  %&gt;% sjlabelled::as_label(.)  %&gt;%  dfSummary(, graph.col = FALSE)</code></pre>
+data %&gt;% select (per_desigualdad_w03, per_desigualdad_w04, per_desigualdad_w05)  %&gt;% sjlabelled::as_label(.)  %&gt;%  dfSummary(, graph.col = FALSE)</code></pre>
 <pre><code>## Data Frame Summary  
 ## Label: Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
 ## Dimensions: 2503 x 3  
@@ -408,15 +408,15 @@ data %&gt;% select (per.desigualdad.w03, per.desigualdad.w04, per.desigualdad.w0
 ## --------------------------------------------------------------------------------------------------
 ## No   Variable              Stats / Values                 Freqs (% of Valid)   Valid     Missing  
 ## ---- --------------------- ------------------------------ -------------------- --------- ---------
-## 1    per.desigualdad.w03   1. De acuerdo                  2231 (89.7%)         2486      17       
+## 1    per_desigualdad_w03   1. De acuerdo                  2231 (89.7%)         2486      17       
 ##      [character]           2. En desacuerdo                137 ( 5.5%)         (99.3%)   (0.7%)   
 ##                            3. Ni de acuerdo ni en desac    118 ( 4.7%)                            
 ## 
-## 2    per.desigualdad.w04   1. De acuerdo                  2355 (94.5%)         2493      10       
+## 2    per_desigualdad_w04   1. De acuerdo                  2355 (94.5%)         2493      10       
 ##      [character]           2. En desacuerdo                 86 ( 3.4%)         (99.6%)   (0.4%)   
 ##                            3. Ni de acuerdo ni en desac     52 ( 2.1%)                            
 ## 
-## 3    per.desigualdad.w05   1. De acuerdo                  2123 (85.3%)         2489      14       
+## 3    per_desigualdad_w05   1. De acuerdo                  2123 (85.3%)         2489      14       
 ##      [character]           2. En desacuerdo                312 (12.5%)         (99.4%)   (0.6%)   
 ##                            3. Ni de acuerdo ni en desac     54 ( 2.2%)                            
 ## --------------------------------------------------------------------------------------------------</code></pre>
@@ -425,45 +425,45 @@ data %&gt;% select (per.desigualdad.w03, per.desigualdad.w04, per.desigualdad.w0
 <h2 number="2.3"><span class="header-section-number">2.3</span> Percepción de Movilidad Social</h2>
 <pre class="r"><code># Trabajo duro
 
-data$d05_04_w03_fac[data$d05_04_w03==1]&lt;- &quot;Poco importante&quot;
-data$d05_04_w03_fac[data$d05_04_w03==2]&lt;- &quot;Poco importante&quot;
-data$d05_04_w03_fac[data$d05_04_w03==3]&lt;- &quot;Algo importante&quot;
-data$d05_04_w03_fac[data$d05_04_w03==4]&lt;- &quot;Muy importante&quot;
-data$d05_04_w03_fac[data$d05_04_w03==5]&lt;- &quot;Muy importante&quot;
+data$movilidad_social_wo3[data$d05_04_w03==1]&lt;- &quot;Poco importante&quot;
+data$movilidad_social_wo3[data$d05_04_w03==2]&lt;- &quot;Poco importante&quot;
+data$movilidad_social_wo3[data$d05_04_w03==3]&lt;- &quot;Algo importante&quot;
+data$movilidad_social_wo3[data$d05_04_w03==4]&lt;- &quot;Muy importante&quot;
+data$movilidad_social_wo3[data$d05_04_w03==5]&lt;- &quot;Muy importante&quot;
 
-data$d05_04_w04_fac[data$d05_04_w04==1]&lt;- &quot;Poco importante&quot;
-data$d05_04_w04_fac[data$d05_04_w04==2]&lt;- &quot;Poco importante&quot;
-data$d05_04_w04_fac[data$d05_04_w04==3]&lt;- &quot;Algo importante&quot;
-data$d05_04_w04_fac[data$d05_04_w04==4]&lt;- &quot;Muy importante&quot;
-data$d05_04_w04_fac[data$d05_04_w04==5]&lt;- &quot;Muy importante&quot;
+data$movilidad_social_wo4[data$d05_04_w04==1]&lt;- &quot;Poco importante&quot;
+data$movilidad_social_wo4[data$d05_04_w04==2]&lt;- &quot;Poco importante&quot;
+data$movilidad_social_wo4[data$d05_04_w04==3]&lt;- &quot;Algo importante&quot;
+data$movilidad_social_wo4[data$d05_04_w04==4]&lt;- &quot;Muy importante&quot;
+data$movilidad_social_wo4[data$d05_04_w04==5]&lt;- &quot;Muy importante&quot;
 
-data$d05_04_w05_fac[data$d05_04_w05==1]&lt;- &quot;Poco importante&quot;
-data$d05_04_w05_fac[data$d05_04_w05==2]&lt;- &quot;Poco importante&quot;
-data$d05_04_w05_fac[data$d05_04_w05==3]&lt;- &quot;Algo importante&quot;
-data$d05_04_w05_fac[data$d05_04_w05==4]&lt;- &quot;Muy importante&quot;
-data$d05_04_w05_fac[data$d05_04_w05==5]&lt;- &quot;Muy importante&quot;
+data$movilidad_social_wo5[data$d05_04_w05==1]&lt;- &quot;Poco importante&quot;
+data$movilidad_social_wo5[data$d05_04_w05==2]&lt;- &quot;Poco importante&quot;
+data$movilidad_social_wo5[data$d05_04_w05==3]&lt;- &quot;Algo importante&quot;
+data$movilidad_social_wo5[data$d05_04_w05==4]&lt;- &quot;Muy importante&quot;
+data$movilidad_social_wo5[data$d05_04_w05==5]&lt;- &quot;Muy importante&quot;
 
-data %&gt;% select (d05_04_w03_fac, d05_04_w04_fac, d05_04_w05_fac)  %&gt;% sjlabelled::as_label(.)  %&gt;%  dfSummary(, graph.col = FALSE)</code></pre>
+data %&gt;% select (movilidad_social_wo3, movilidad_social_wo4, movilidad_social_wo5)  %&gt;% sjlabelled::as_label(.)  %&gt;%  dfSummary(, graph.col = FALSE)</code></pre>
 <pre><code>## Data Frame Summary  
 ## Label: Estudio Longitudinal Social de Chile. Ola 2016. Version 4.00 (10/06/2020)  
 ## Dimensions: 2503 x 3  
 ## Duplicates: 2463  
 ## 
-## -----------------------------------------------------------------------------------
-## No   Variable         Stats / Values       Freqs (% of Valid)   Valid     Missing  
-## ---- ---------------- -------------------- -------------------- --------- ---------
-## 1    d05_04_w03_fac   1. Algo importante    333 (13.3%)         2496      7        
-##      [character]      2. Muy importante    1927 (77.2%)         (99.7%)   (0.3%)   
-##                       3. Poco importante    236 ( 9.5%)                            
+## -----------------------------------------------------------------------------------------
+## No   Variable               Stats / Values       Freqs (% of Valid)   Valid     Missing  
+## ---- ---------------------- -------------------- -------------------- --------- ---------
+## 1    movilidad_social_wo3   1. Algo importante    333 (13.3%)         2496      7        
+##      [character]            2. Muy importante    1927 (77.2%)         (99.7%)   (0.3%)   
+##                             3. Poco importante    236 ( 9.5%)                            
 ## 
-## 2    d05_04_w04_fac   1. Algo importante    431 (17.2%)         2499      4        
-##      [character]      2. Muy importante    1810 (72.4%)         (99.8%)   (0.2%)   
-##                       3. Poco importante    258 (10.3%)                            
+## 2    movilidad_social_wo4   1. Algo importante    431 (17.2%)         2499      4        
+##      [character]            2. Muy importante    1810 (72.4%)         (99.8%)   (0.2%)   
+##                             3. Poco importante    258 (10.3%)                            
 ## 
-## 3    d05_04_w05_fac   1. Algo importante    400 (16.1%)         2480      23       
-##      [character]      2. Muy importante    1790 (72.2%)         (99.1%)   (0.9%)   
-##                       3. Poco importante    290 (11.7%)                            
-## -----------------------------------------------------------------------------------</code></pre>
+## 3    movilidad_social_wo5   1. Algo importante    400 (16.1%)         2480      23       
+##      [character]            2. Muy importante    1790 (72.2%)         (99.1%)   (0.9%)   
+##                             3. Poco importante    290 (11.7%)                            
+## -----------------------------------------------------------------------------------------</code></pre>
 </div>
 <div id="sexo" class="section level2" number="2.4">
 <h2 number="2.4"><span class="header-section-number">2.4</span> Sexo</h2>
