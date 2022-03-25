@@ -28,6 +28,7 @@ En el siguiente avance, se presentan los indicadores descriptivos y primeros mod
 En una primera instancia, se definieron las siguientes variables dependientes para la operacionalización:
 
 
+
 ```{r, echo=FALSE}
 kbl(Variablesy) %>%
   kable_paper(full_width = F) %>%
@@ -43,6 +44,15 @@ kbl(Variablesx) %>%
   column_spec(1, bold = T, border_right = T) %>%
   column_spec(2, width = "30em")
 ```
+Sobre las variables anteriores es necesario mencionar lo siguiente:
+
+1. Percepcion de igualdad de posición: la pregunta p18_13 solo se encuentra disponible a la ola 4 y 5.
+
+2. Participación es organizaciones sociales: no se encuentra disponible para todas las olas, solo ola 1 y 3.
+
+3. Igualdad de oportunidades: no se encuentra disponible para todas las olas, solo ola 1 y 3.
+
+4. Pueblo originario: no se encuentra disponible para las olas 1, 2 y 5.
 
 
 ## Análisis descriptivo de variables.
@@ -118,7 +128,15 @@ resumen.vars("c05_08_w05",elsoc_wide_2018_2021)%>%
   kable_paper(full_width = F) 
 ```
 
+```{r, echo=FALSE}
+resumen.vars("conf_institucional_w03",elsoc_wide_2018_2021)%>%
+  kbl() %>% 
+  kable_paper(full_width = F) 
+```
+
+
 #### Confianza en las instituciones
+
 
 #### Percepción de la Desigualdad
 

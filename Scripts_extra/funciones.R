@@ -38,7 +38,6 @@ resumen.vars <- function(vars, base){
   
 }
 
-
 # SIGNIFICANCIA RELACIONES BIVARIADAS -------------------------------------
 
 resumen <- function(var){
@@ -107,50 +106,6 @@ sig_w05 <- function(base,var_banner,variable){
   tabla_spss <- tabla_spss %>% separate(variables, into = c("b_1", "variables","b_2"), sep = "([\\.\\|\\:])", convert = TRUE) %>% select(-starts_with("b_"))
   tabla_spss <- tabla_spss %>% filter(categoria != "#Total cases")
   return(tabla_spss)
-}
-
-
-
-
-# GRAFICOS ----------------------------------------------------------------
-
-grafo<-function(var,ancho=20){
-  
-  var<- as.name(var)
-  ggp<- ggplot(elsoc_2016,aes(x=factor(!!var), y=s11_phq9))+
-    geom_boxplot()+
-    labs(title=element_blank(),
-         y="Puntaje PHQ-9",
-         x=element_blank())+
-    theme_classic()+
-    scale_x_discrete(labels=stringr::str_wrap(levels(getElement(elsoc_2016,var)), width = ancho),na.translate=FALSE)
-  
-  return(ggp)
-}
-
-grafo.num<-function(var){
-  var<-as.name(var)
-  ggp<-ggplot(elsoc_2016,aes(x=!!var,y=s11_phq9))+
-    geom_point()+
-    labs(title =element_blank(),
-         y="Puntaje Escala PHQ-9",
-         x=element_blank())+
-    theme_classic()
-  return(ggp)
-  
-}
-
-
-# R NIVEL DEL FACTOR TAUS -------------------------------------------------
-
-tau.r<- function(mod,var){
-  tau<- -sum(coefficients(mod)[grepl(names(coefficients(mod)),pattern = gsub(x=var,pattern = "_fac",replacement = ""))])
-  contrastes<-contrasts(getElement(base_modelo,var))
-  
-  tabla<- tibble("Variable"=var,
-                 "Nivel"=row.names(contrastes)[nrow(contrastes)],
-                 "Coeficiente"=round(tau,4))
-  return(tabla)
 }
 
 

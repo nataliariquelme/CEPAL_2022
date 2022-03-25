@@ -244,16 +244,16 @@ elsoc_wide_2018_2021$m01_w02_fac[elsoc_wide_2018_2021$m01_w02==-999]=NA
 
 ## Ola 3 ################
 
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==1]="Sin estudios"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==2]="Basica Incompleta"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==3]="Basica Completa"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==4]="Media Incompleta"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==5]="Media Completa"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==6]="Tecnica Incompleta"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==7]="Tecnica Completa"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==8]="Universitaria Incompleta"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==9]="Universitaria Completa"
-elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==10]="Postgrado"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==1]="Menos que media completa"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==2]="Menos que media completa"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==3]="Menos que media completa"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==4]="Menos que media completa"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==5]="Media completa"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==6]="Educacion tecnica superior"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==7]="Educacion tecnica superior"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==8]="Educacion universitaria y Postgrado"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==9]="Educacion universitaria y Postgrado"
+elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==10]="Educacion universitaria y Postgrado"
 elsoc_wide_2018_2021$m01_w03_fac[elsoc_wide_2018_2021$m01_w03==-999]=NA
 
 ########## ola 4 #################

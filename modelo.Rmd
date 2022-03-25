@@ -1,0 +1,88 @@
+---
+title: "Indicadores longitudinales"
+author: "Equipo CEPAL-COES"
+date: "25-03-2022"
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+---
+
+# Indicadores longitudinales
+
+Este documento genera los distintos indicadores que serán utilizados para observar aquellas variables de interés para el estudio de la estratificación, desigualdad y pacto social en el Chile actual.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=F, message=F)
+```
+
+```{r include=FALSE}
+# Cargar paquetes
+pacman::p_load(dplyr, panelr, survey, ggplot2, summarytools, shadowtext)
+```
+
+```{r include=FALSE}
+# Cargar base elsoc longitudinal (2016-2019) creada en "preparacion"
+load("data.RData")
+```
+
+```{r}
+### Creación de la base de datos de modelo 
+
+#### Confianza en las instituciones
+
+data_conf_w03 <- data %>% 
+  select(conf_institucional_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+
+data_conf_w04 <- data %>% 
+  select(conf_institucional_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+
+data_conf_w05 <- data %>% 
+  select(conf_institucional_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+
+#### percepción de la desigualdad
+
+data_per_des_w03 <- data %>% 
+  select(per_desigualdad_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+
+data_per_des_w04 <- data %>% 
+  select(per_desigualdad_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+
+data_per_des_w05 <- data %>% 
+  select(per_desigualdad_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+
+#### Percepción de movilidad social
+
+data_per_mov_w03 <- data %>% 
+  select(movilidad_social_wo3, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+
+data_per_mov_w04 <- data %>% 
+  select(movilidad_social_wo4,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+
+data_per_mov_w05 <- data %>% 
+  select(movilidad_social_wo5, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+
+#### Expectativas de movilidad social
+
+data_exp_mov_w03 <- data %>% 
+  select(exp_mov_fac_w03, m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+
+data_exp_mov_w04 <- data %>% 
+  select(exp_mov_fac_w04,  m0_sexo_w04, m0_edad_w04_fac, m01_w04_fac, m13_w04_fac, m02_w04_fac)
+
+data_exp_mov_w05 <- data %>% 
+  select(exp_mov_fac_w05, m0_sexo_w05, m0_edad_w05_fac, m01_w05_fac, m13_w05_fac, m02_w05_fac)
+
+```
+
+```{r}
+attach(data)
+vars_predictoras <- c(m0_sexo_w03, m0_edad_w03_fac, m01_w03_fac, m13_w03_fac, m02_w03_fac)
+```
+
+### Modelo de selección fordward para conf_institucional_w03
+
+
+
+
