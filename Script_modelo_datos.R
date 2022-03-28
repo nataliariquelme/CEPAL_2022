@@ -506,43 +506,192 @@ data_exp_mov_w05 <- data %>%
 ## Seleccion modelo
 
 #### Confianza institucional w03
+unique(data_conf_w03$conf_institucional_w03) 
+# Recodificacion de confianza institucional 
 
-mod_nulo <- lm(conf_institucional_w03 ~ 1,  weights = ponderador02_w03, data_conf_w03)
-mod_full <-  lm(conf_institucional_w03~., weights = ponderador02_w03, data = data_conf_w03)
+# Recodificacion de todo a numerico
+
+#Confianza
+data_conf_w03$conf_institucional_w03 <- as.character(data_conf_w03$conf_institucional_w03)
+data_conf_w03$conf_institucional_w03[data_conf_w03$conf_institucional_w03=="Nada o Poca"]=1
+data_conf_w03$conf_institucional_w03[data_conf_w03$conf_institucional_w03=="Algo"]=2
+data_conf_w03$conf_institucional_w03[data_conf_w03$conf_institucional_w03=="Bastante o Mucha"]=3
+
+data_conf_w03$conf_institucional_w03 <- as.numeric(data_conf_w03$conf_institucional_w03)
+data_conf_w03$ponderador02_w03 <- as.numeric(data_conf_w03$ponderador02_w03)
+
+#Edad
+
+
+data_conf_w03$m0_edad_w03_fac[data_conf_w03$m0_edad_w03_fac=="18 a 30 años"]=1
+data_conf_w03$m0_edad_w03_fac[data_conf_w03$m0_edad_w03_fac=="31 a 50 años"]=2
+data_conf_w03$m0_edad_w03_fac[data_conf_w03$m0_edad_w03_fac=="51 a 70 años"]=3
+data_conf_w03$m0_edad_w03_fac[data_conf_w03$m0_edad_w03_fac=="71 o más años"]=4
+
+data_conf_w03$m0_edad_w03_fac <- as.numeric(data_conf_w03$m0_edad_w03_fac)
+
+# Educacion
+unique(data_conf_w03$m01_w03_fac)
+
+data_conf_w03$m01_w03_fac[data_conf_w03$m01_w03_fac=="Menos que media completa"]=1
+data_conf_w03$m01_w03_fac[data_conf_w03$m01_w03_fac=="Media completa"]=2
+data_conf_w03$m01_w03_fac[data_conf_w03$m01_w03_fac=="Educacion tecnica superior"]=3
+data_conf_w03$m01_w03_fac[data_conf_w03$m01_w03_fac=="Educacion universitaria y Postgrado"]=4
+
+data_conf_w03$m01_w03_fac <- as.numeric(data_conf_w03$m01_w03_fac)
+
+# Ingresos
+unique(data_conf_w03$m13_w03_fac)
+
+
+data_conf_w03$m13_w03_fac[data_conf_w03$m13_w03_fac=="Menos de 250.000"]=1
+data_conf_w03$m13_w03_fac[data_conf_w03$m13_w03_fac=="Entre 250.000 a 350.000"]=2
+data_conf_w03$m13_w03_fac[data_conf_w03$m13_w03_fac=="Entre 350.000 a 450.000"]=3
+data_conf_w03$m13_w03_fac[data_conf_w03$m13_w03_fac=="Entre 450.000 a 700.000"]=4
+data_conf_w03$m13_w03_fac[data_conf_w03$m13_w03_fac=="Mas de 700.000"]=5
+
+data_conf_w03$m13_w03_fac<- as.numeric(data_conf_w03$m13_w03_fac)
+
+# Participacion
+unique(data_conf_w03$m02_w03_fac)
+
+data_conf_w03$m02_w03_fac[data_conf_w03$m02_w03_fac=="No Participa"]=1
+data_conf_w03$m02_w03_fac[data_conf_w03$m02_w03_fac=="Participa"]=2
+
+data_conf_w03$m02_w03_fac<- as.numeric(data_conf_w03$m02_w03_fac)
+
+
+mod_nulo <- lm(conf_institucional_w03 ~ 1,  weights = ponderador02_w03, data_conf_w03, na.action= na.exclude)
+
+mod_full <-  lm(conf_institucional_w03~., weights = ponderador02_w03, data=data_conf_w03, na.action= na.exclude)
 
 
 modelo <-  step(mod_nulo,
                 scope=list(lower=formula(mod_nulo),
                            upper=formula(mod_full)),
-                direction="both")
+                direction="both", na.action= na.exclude)
 
 ### modelo seleccionado
 summary(modelo)
 
 #### Confianza institucional w04
+data_conf_w04$conf_institucional_w04 <- as.character(data_conf_w04$conf_institucional_w04)
+data_conf_w04$conf_institucional_w04[data_conf_w04$conf_institucional_w04=="Nada o Poca"]=1
+data_conf_w04$conf_institucional_w04[data_conf_w04$conf_institucional_w04=="Algo"]=2
+data_conf_w04$conf_institucional_w04[data_conf_w04$conf_institucional_w04=="Bastante o Mucha"]=3
 
-mod_nulo <- lm(conf_institucional_w04~1,  weights = ponderador_02_w04, data_conf_w03)
-mod_full <-  lm(conf_institucional_w04~., weights = ponderador_02_w04, data = data_conf_w03)
+data_conf_w04$conf_institucional_w04 <- as.numeric(data_conf_w04$conf_institucional_w04)
+data_conf_w04$ponderador02_w04 <- as.numeric(data_conf_w04$ponderador02_w04)
+
+#Edad
+
+
+data_conf_w04$m0_edad_w04_fac[data_conf_w04$m0_edad_w04_fac=="18 a 30 años"]=1
+data_conf_w04$m0_edad_w04_fac[data_conf_w04$m0_edad_w04_fac=="31 a 50 años"]=2
+data_conf_w04$m0_edad_w04_fac[data_conf_w04$m0_edad_w04_fac=="51 a 70 años"]=3
+data_conf_w04$m0_edad_w04_fac[data_conf_w04$m0_edad_w04_fac=="71 o más años"]=4
+
+data_conf_w04$m0_edad_w04_fac <- as.numeric(data_conf_w04$m0_edad_w04_fac)
+
+# Educacion
+unique(data_conf_w04$m01_w04_fac)
+
+data_conf_w04$m01_w04_fac[data_conf_w04$m01_w04_fac=="Menos que media completa"]=1
+data_conf_w04$m01_w04_fac[data_conf_w04$m01_w04_fac=="Media completa"]=2
+data_conf_w04$m01_w04_fac[data_conf_w04$m01_w04_fac=="Educacion tecnica superior"]=3
+data_conf_w04$m01_w04_fac[data_conf_w04$m01_w04_fac=="Educacion universitaria y Postgrado"]=4
+
+data_conf_w04$m01_w04_fac <- as.numeric(data_conf_w04$m01_w04_fac)
+
+# Ingresos
+unique(data_conf_w04$m13_w04_fac)
+
+
+data_conf_w04$m13_w04_fac[data_conf_w04$m13_w04_fac=="Menos de 250.000"]=1
+data_conf_w04$m13_w04_fac[data_conf_w04$m13_w04_fac=="Entre 250.000 a 350.000"]=2
+data_conf_w04$m13_w04_fac[data_conf_w04$m13_w04_fac=="Entre 350.000 a 450.000"]=3
+data_conf_w04$m13_w04_fac[data_conf_w04$m13_w04_fac=="Entre 450.000 a 700.000"]=4
+data_conf_w04$m13_w04_fac[data_conf_w04$m13_w04_fac=="Mas de 700.000"]=5
+
+data_conf_w04$m13_w04_fac<- as.numeric(data_conf_w04$m13_w04_fac)
+
+# Participacion
+unique(data_conf_w04$m02_w04_fac)
+
+data_conf_w04$m02_w04_fac[data_conf_w04$m02_w04_fac=="No Participa"]=1
+data_conf_w04$m02_w04_fac[data_conf_w04$m02_w04_fac=="Participa"]=2
+
+data_conf_w04$m02_w04_fac<- as.numeric(data_conf_w04$m02_w04_fac)
+
+mod_nulo <- lm(conf_institucional_w04~1,  weights = ponderador02_w04, data_conf_w04, na.action= na.exclude)
+mod_full <-  lm(conf_institucional_w04~., weights = ponderador02_w04, data = data_conf_w04, na.action= na.exclude)
 
 
 modelo <-  step(mod_nulo,
                 scope=list(lower=formula(mod_nulo),
                            upper=formula(mod_full)),
-                direction="both")
+                direction="both", na.action= na.exclude)
 
 ### modelo seleccionado
 summary(modelo)
 
 #### Confianza institucional w05
+data_conf_w05$conf_institucional_w05 <- as.character(data_conf_w05$conf_institucional_w05)
+data_conf_w05$conf_institucional_w05[data_conf_w05$conf_institucional_w05=="Nada o Poca"]=1
+data_conf_w05$conf_institucional_w05[data_conf_w05$conf_institucional_w05=="Algo"]=2
+data_conf_w05$conf_institucional_w05[data_conf_w05$conf_institucional_w05=="Bastante o Mucha"]=3
 
-mod_nulo <- lm(conf_institucional_w05~1,weights = ponderador_02_w05, data_conf_w05)
-mod_full <-  lm(conf_institucional_w05~.,weights = ponderador_02_w05, data = data_conf_w05)
+data_conf_w05$conf_institucional_w05 <- as.numeric(data_conf_w05$conf_institucional_w05)
+data_conf_w05$ponderador02_w05 <- as.numeric(data_conf_w05$ponderador02_w05)
+
+#Edad
+
+
+data_conf_w05$m0_edad_w05_fac[data_conf_w05$m0_edad_w05_fac=="18 a 30 años"]=1
+data_conf_w05$m0_edad_w05_fac[data_conf_w05$m0_edad_w05_fac=="31 a 50 años"]=2
+data_conf_w05$m0_edad_w05_fac[data_conf_w05$m0_edad_w05_fac=="51 a 70 años"]=3
+data_conf_w05$m0_edad_w05_fac[data_conf_w05$m0_edad_w05_fac=="71 o más años"]=4
+
+data_conf_w05$m0_edad_w05_fac <- as.numeric(data_conf_w05$m0_edad_w05_fac)
+
+# Educacion
+unique(data_conf_w05$m01_w05_fac)
+
+data_conf_w05$m01_w05_fac[data_conf_w05$m01_w05_fac=="Menos que media completa"]=1
+data_conf_w05$m01_w05_fac[data_conf_w05$m01_w05_fac=="Media completa"]=2
+data_conf_w05$m01_w05_fac[data_conf_w05$m01_w05_fac=="Educacion tecnica superior"]=3
+data_conf_w05$m01_w05_fac[data_conf_w05$m01_w05_fac=="Educacion universitaria y Postgrado"]=4
+
+data_conf_w05$m01_w05_fac <- as.numeric(data_conf_w05$m01_w05_fac)
+
+# Ingresos
+unique(data_conf_w05$m13_w05_fac)
+
+
+data_conf_w05$m13_w05_fac[data_conf_w05$m13_w05_fac=="Menos de 250.000"]=1
+data_conf_w05$m13_w05_fac[data_conf_w05$m13_w05_fac=="Entre 250.000 a 350.000"]=2
+data_conf_w05$m13_w05_fac[data_conf_w05$m13_w05_fac=="Entre 350.000 a 450.000"]=3
+data_conf_w05$m13_w05_fac[data_conf_w05$m13_w05_fac=="Entre 450.000 a 700.000"]=4
+data_conf_w05$m13_w05_fac[data_conf_w05$m13_w05_fac=="Mas de 700.000"]=5
+
+data_conf_w05$m13_w05_fac<- as.numeric(data_conf_w05$m13_w05_fac)
+
+# Participacion
+unique(data_conf_w05$m02_w05_fac)
+
+data_conf_w05$m02_w05_fac[data_conf_w05$m02_w05_fac=="No Participa"]=1
+data_conf_w05$m02_w05_fac[data_conf_w05$m02_w05_fac=="Participa"]=2
+
+data_conf_w05$m02_w05_fac<- as.numeric(data_conf_w05$m02_w05_fac)
+
+mod_nulo <- lm(conf_institucional_w05~1,weights = ponderador02_w05, data_conf_w05, na.action= na.exclude)
+mod_full <-  lm(conf_institucional_w05~.,weights = ponderador02_w05, data = data_conf_w05, na.action= na.exclude)
 
 
 modelo <-  step(mod_nulo,
                 scope=list(lower=formula(mod_nulo),
                            upper=formula(mod_full)),
-                direction="both")
+                direction="both", na.action= na.exclude)
 
 ### modelo seleccionado
 summary(modelo)
